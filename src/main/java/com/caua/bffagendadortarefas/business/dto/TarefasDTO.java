@@ -1,5 +1,6 @@
 package com.caua.bffagendadortarefas.business.dto;
 
+import com.caua.bffagendadortarefas.business.enums.StatusNotificacaoEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
