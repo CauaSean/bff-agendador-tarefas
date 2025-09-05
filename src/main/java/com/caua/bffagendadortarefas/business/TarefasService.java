@@ -1,6 +1,7 @@
 package com.caua.bffagendadortarefas.business;
 
-import com.caua.bffagendadortarefas.business.dto.TarefasDTO;
+import com.caua.bffagendadortarefas.business.dto.in.TarefasDTORequest;
+import com.caua.bffagendadortarefas.business.dto.out.TarefasDTOResponse;
 import com.caua.bffagendadortarefas.business.enums.StatusNotificacaoEnum;
 import com.caua.bffagendadortarefas.infrastructure.client.TarefasClient;
 import lombok.RequiredArgsConstructor;
@@ -15,17 +16,17 @@ public class TarefasService {
 
     private final TarefasClient tarefasClient;
 
-    public TarefasDTO gravarTarefas(TarefasDTO dto, String token) {
+    public TarefasDTOResponse gravarTarefas(TarefasDTORequest dto, String token) {
         return tarefasClient.gravarTarefas(dto, token);
     }
 
-    public List<TarefasDTO> buscarTarefasAgendadasPorPeriodo(LocalDateTime dataInicial,
-                                                             LocalDateTime dataFinal, String token) {
+    public List<TarefasDTOResponse> buscarTarefasAgendadasPorPeriodo(LocalDateTime dataInicial,
+                                                                     LocalDateTime dataFinal, String token) {
         return tarefasClient.buscaListaDeTarefasPorPeriodo(dataInicial, dataFinal, token);
 
     }
 
-    public List<TarefasDTO> buscarTarefasPorEmail(String token) {
+    public List<TarefasDTOResponse> buscarTarefasPorEmail(String token) {
         return tarefasClient.buscaTarefasPorEmail(token);
     }
 
@@ -33,11 +34,11 @@ public class TarefasService {
         tarefasClient.deletarTarefasPorId(id, token);
     }
 
-    public TarefasDTO alteraStatus(StatusNotificacaoEnum status, String id, String token) {
+    public TarefasDTOResponse alteraStatus(StatusNotificacaoEnum status, String id, String token) {
         return tarefasClient.alteraStatusNotificacao(status, id, token);
     }
 
-    public TarefasDTO updateTarefas(TarefasDTO dto, String id, String token) {
+    public TarefasDTOResponse updateTarefas(TarefasDTORequest dto, String id, String token) {
         return tarefasClient.updateTarefas(dto, id, token);
     }
 }

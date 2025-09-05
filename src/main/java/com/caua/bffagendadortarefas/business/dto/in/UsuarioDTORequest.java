@@ -1,4 +1,4 @@
-package com.caua.bffagendadortarefas.business.dto;
+package com.caua.bffagendadortarefas.business.dto.in;
 
 import lombok.*;
 
@@ -9,12 +9,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UsuarioDTO {
+public class UsuarioDTORequest {
 
     private String nome;
     private String email;
     private String senha;
-    private List<EnderecoDTO> enderecos;
-    private  List<TelefoneDTO> telefones;
+    private List<EnderecoDTORequest> enderecos;
+    private  List<TelefoneDTORequest> telefones;
 
 }

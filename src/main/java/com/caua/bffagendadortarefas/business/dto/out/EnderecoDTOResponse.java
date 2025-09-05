@@ -1,4 +1,4 @@
-package com.caua.bffagendadortarefas.business.dto;
+package com.caua.bffagendadortarefas.business.dto.out;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class EnderecoDTO {
+public class EnderecoDTOResponse {
 
     private Long id;
     private String rua;
