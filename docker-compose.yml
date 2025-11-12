@@ -15,7 +15,7 @@ services:
     build: .
     container_name: bff-agendador-tarefas
     ports:
-      - "8083:8083"
+      - "8090:8090"
     environment:
       - USUARIO_URL=usuario:8081/usuario
       - AGENDADOR_TAREFAS_URL=agendador-tarefas:8082/tarefas
