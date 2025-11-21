@@ -53,7 +53,5 @@ public interface UserClient {
                                          @RequestHeader("Authorization") String token);
 
     @GetMapping("/endereco/{cep}")
-    public ResponseEntity<ViaCepDTOResponse> buscarDadosCep(@PathVariable("cep") String cep){
-        return ResponseEntity.ok(viaCepService.buscarDadosEndereco(cep));
-    }
+    ViaCepDTOResponse buscarDadosCep(@PathVariable("cep") String cep);
 }
