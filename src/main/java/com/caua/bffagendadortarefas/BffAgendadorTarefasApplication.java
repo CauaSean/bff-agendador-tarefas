@@ -8,7 +8,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableFeignClients
 @EnableScheduling
-public class BffAgendadorTarefasApplication {
+public class
+BffAgendadorTarefasApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BffAgendadorTarefasApplication.class, args);
