@@ -132,7 +132,7 @@ public class UserController {
     @ApiResponse(responseCode =  "200", description = "Dados de endereço retornados com sucesso")
     @ApiResponse(responseCode = "400", description = "Cep inválido")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
-    public ResponseEntity<ViaCepDTOResponse> buscarEndereco(@PathVariable("cep") String ce){
+    public ResponseEntity<ViaCepDTOResponse> buscarEndereco(@PathVariable("cep") String cep){
         return ResponseEntity.ok(userService.buscarEnderecoPorCep(cep));
     }
 }
