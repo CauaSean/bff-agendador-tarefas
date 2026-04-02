@@ -14,11 +14,11 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:4200") //front futuro
+                        .allowedOrigins("http://127.0.0.1:5500", "http://localhost:5500") // Conexão com Front
                         .allowedMethods("GET", "POST", "PUT", "PATCH", "DELETE")
                         .allowedHeaders("*")
                         .allowCredentials(true)
-                        .maxAge(360);
+                        .maxAge(3600);
             }
         };
     }

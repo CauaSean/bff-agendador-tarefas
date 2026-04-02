@@ -1,4 +1,4 @@
-package com.caua.bffagendadortarefas.business;
+package com.caua.bffagendadortarefas.business.service;
 
 import com.caua.bffagendadortarefas.business.dto.out.TarefasDTOResponse;
 import com.caua.bffagendadortarefas.infrastructure.client.EmailClient;

@@ -1,6 +1,5 @@
 package com.caua.bffagendadortarefas.business.dto.in;
 
-import com.caua.bffagendadortarefas.business.enums.StatusNotificacaoEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
@@ -15,7 +14,7 @@ public class TarefasDTORequest {
 
     private String nomeTarefa;
     private String descricao;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm[:ss]")
     private LocalDateTime dataEvento;
 
 }

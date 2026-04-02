@@ -1,7 +1,7 @@
 package com.caua.bffagendadortarefas.controller;
 
 
-import com.caua.bffagendadortarefas.business.UserService;
+import com.caua.bffagendadortarefas.business.service.UserService;
 import com.caua.bffagendadortarefas.business.dto.in.EnderecoDTORequest;
 import com.caua.bffagendadortarefas.business.dto.in.LoginRequestDTO;
 import com.caua.bffagendadortarefas.business.dto.in.TelefoneDTORequest;
@@ -10,10 +10,8 @@ import com.caua.bffagendadortarefas.business.dto.out.EnderecoDTOResponse;
 import com.caua.bffagendadortarefas.business.dto.out.TelefoneDTOResponse;
 import com.caua.bffagendadortarefas.business.dto.out.UsuarioDTOResponse;
 import com.caua.bffagendadortarefas.business.dto.out.ViaCepDTOResponse;
-import com.caua.bffagendadortarefas.infrastructure.security.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +22,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Tag(name = "Usuário", description = "Cadastro e login de usuários")
 @CrossOrigin(origins = {"http://localhost:3000"})
-@SecurityRequirement(name = SecurityConfig.SECURITY_SCHEME)
 public class UserController {
 
     private final UserService userService;

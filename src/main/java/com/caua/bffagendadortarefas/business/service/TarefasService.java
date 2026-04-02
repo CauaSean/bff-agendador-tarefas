@@ -1,4 +1,4 @@
-package com.caua.bffagendadortarefas.business;
+package com.caua.bffagendadortarefas.business.service;
 
 import com.caua.bffagendadortarefas.business.dto.in.TarefasDTORequest;
 import com.caua.bffagendadortarefas.business.dto.out.TarefasDTOResponse;
@@ -27,7 +27,9 @@ public class TarefasService {
     }
 
     public List<TarefasDTOResponse> buscarTarefasPorEmail(String token) {
-        return tarefasClient.buscaTarefasPorEmail(token);
+        String cleanedToken = token != null && token.startsWith("Bearer ") ? token.substring(7) : token;
+        System.out.println("DEBUG - Sending Token to MS: " + token);
+        return tarefasClient.buscaTarefasPorEmail(cleanedToken);
     }
 
     public void deletarTarefasPorId(String id, String token) {

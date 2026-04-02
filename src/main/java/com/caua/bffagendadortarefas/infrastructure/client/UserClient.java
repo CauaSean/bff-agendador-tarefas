@@ -10,7 +10,6 @@ import com.caua.bffagendadortarefas.business.dto.out.TelefoneDTOResponse;
 import com.caua.bffagendadortarefas.business.dto.out.UsuarioDTOResponse;
 import com.caua.bffagendadortarefas.business.dto.out.ViaCepDTOResponse;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name = "usuario", url = "${usuario.url}")
@@ -24,33 +23,33 @@ public interface UserClient {
 
     @GetMapping
     UsuarioDTOResponse buscaUsuarioPorEmail(@RequestParam("email") String email,
-                                           @RequestHeader("Authorization") String token);
+                                           @RequestHeader(name = "Authorization", required = false) String token);
 
     @DeleteMapping("/{email}")
     void deletaUsuarioPorEmail(@PathVariable String email,
-                               @RequestHeader("Authorization") String token);
+                               @RequestHeader(name = "Authorization", required = false) String token);
 
     @PutMapping
     UsuarioDTOResponse atualizaDadosUsuario(@RequestBody UsuarioDTORequest usuarioDTORequest,
-                                            @RequestHeader("Authorization") String token);
+                                            @RequestHeader(name = "Authorization", required = false) String token);
 
     @PutMapping("/endereco")
     EnderecoDTOResponse atualizaEndereco(@RequestBody EnderecoDTORequest dto,
                                         @RequestParam("id") Long id,
-                                        @RequestHeader("Authorization") String token);
+                                        @RequestHeader(name = "Authorization", required = false) String token);
 
     @PutMapping("/telefone")
     TelefoneDTOResponse atualizaTelefone(@RequestBody TelefoneDTORequest dto,
                                         @RequestParam("id") Long id,
-                                        @RequestHeader("Authorization") String token);
+                                        @RequestHeader(name = "Authorization", required = false) String token);
 
     @PostMapping("/endereco")
     EnderecoDTOResponse cadastraEndereco(@RequestBody EnderecoDTORequest dto,
-                                         @RequestHeader("Authorization") String token);
+                                         @RequestHeader(name = "Authorization", required = false) String token);
 
     @PostMapping("/telefone")
     TelefoneDTOResponse cadastraTelefone(@RequestBody TelefoneDTORequest dto,
-                                         @RequestHeader("Authorization") String token);
+                                         @RequestHeader(name = "Authorization", required = false) String token);
 
     @GetMapping("/endereco/{cep}")
     ViaCepDTOResponse buscarDadosCep(@PathVariable("cep") String cep);

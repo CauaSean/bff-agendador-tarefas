@@ -23,11 +23,13 @@ public class FeignError implements ErrorDecoder {
             case 409:
                 return new ConflictException("Erro: " +mensagemErro);
             case 403:
-                return new ResourceNotFoundException("Erro: " + mensagemErro);
+                return new UnauthorizedException("Erro: Acesso Negado. " + mensagemErro);
             case 401:
-                return new UnauthorizedException("Erro:" + mensagemErro);
+                return new UnauthorizedException("Erro: " + mensagemErro);
             case 400:
                 return new IllegalArgumentException("Erro:" + mensagemErro);
+            case 404:
+                return new ResourceNotFoundException("Erro: Recurso não encontrado. " + mensagemErro);
             default:
                 return new BusinessException("Erro: " + mensagemErro);
         }

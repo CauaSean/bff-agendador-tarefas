@@ -1,0 +1,88 @@
+{
+  "info": {
+    "name": "BFF Agendador Tarefas - Tarefas Eventos",
+    "description": "Collection to call /tarefas/eventos endpoint",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"michaeljackson@gmail.com\",\n  \"senha\": \"12345Michael\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8090/usuario/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "usuario",
+            "login"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "    const token = pm.response.text();",
+              "    pm.collectionVariables.set('jwt_token', token);",
+              "    console.log('Token saved:', token);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Get Tarefas Eventos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8090/tarefas/eventos?dataInicial=2026-04-01T00:00:00&dataFinal=2026-04-30T23:59:59",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "tarefas",
+            "eventos"
+          ],
+          "query": [
+            {
+              "key": "dataInicial",
+              "value": "2026-04-01T00:00:00"
+            },
+            {
+              "key": "dataFinal",
+              "value": "2026-04-30T23:59:59"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "jwt_token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

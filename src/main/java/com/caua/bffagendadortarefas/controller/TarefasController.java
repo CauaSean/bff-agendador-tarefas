@@ -1,14 +1,12 @@
 package com.caua.bffagendadortarefas.controller;
 
 
-import com.caua.bffagendadortarefas.business.TarefasService;
+import com.caua.bffagendadortarefas.business.service.TarefasService;
 import com.caua.bffagendadortarefas.business.dto.in.TarefasDTORequest;
 import com.caua.bffagendadortarefas.business.dto.out.TarefasDTOResponse;
 import com.caua.bffagendadortarefas.business.enums.StatusNotificacaoEnum;
-import com.caua.bffagendadortarefas.infrastructure.security.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
@@ -23,7 +21,6 @@ import java.util.List;
 @RequestMapping("/tarefas")
 @RequiredArgsConstructor
 @Tag(name = "Tarefas", description = "Cadastra tarefas de usuários")
-@SecurityRequirement(name = SecurityConfig.SECURITY_SCHEME)
 public class TarefasController {
 
     private final TarefasService tarefasService;
@@ -53,6 +50,7 @@ public class TarefasController {
     @ApiResponse(responseCode =  "200", description = "Tarefas encontradas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
     public ResponseEntity<List<TarefasDTOResponse>> buscaTarefasPorEmail(@RequestHeader(name = "Authorization", required = false) String token) {
+        System.out.println("Token received by BFF: " + token);
         return ResponseEntity.ok(tarefasService.buscarTarefasPorEmail(token));
     }
 
